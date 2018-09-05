@@ -1,16 +1,8 @@
-node {
-    def app
-
-    stage('Clone repository') {
-      checkout scm
+node{
+    stage('SCM Checkout'){
+        checkout scm
     }
-
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("aakash/demo-app")
-    }
-
-    
+   stage('Build Docker Image'){
+     sh 'docker build -t aakash/my-app:2.0.0 .'
+   }   
 }
