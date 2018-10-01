@@ -1,4 +1,4 @@
-from jenkins/jenkins:lts
+FROM jenkins/jenkins:lts
 
 ARG user=jenkins
 ARG group=jenkins
@@ -24,6 +24,6 @@ COPY security.groovy /usr/share/jenkins/ref/init.groovy.d/security.groovy
  
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 # Scaling
-RUN /usr/local/bin/install-plugins.sh kubernetes
+#RUN /usr/local/bin/install-plugins.sh kubernetes
 
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
