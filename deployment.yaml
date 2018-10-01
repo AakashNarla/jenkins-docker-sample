@@ -12,7 +12,7 @@ spec:
       containers:
         - name: jenkins
           image: myjenkins/jenkins:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Never
           env:
             - name: JAVA_OPTS
               value: -Djenkins.install.runSetupWizard=false
@@ -24,6 +24,12 @@ spec:
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
       volumes:
         - name: jenkins-home
           emptyDir: {}
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+            type: File
