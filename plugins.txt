@@ -4,7 +4,7 @@ ant:1.8
 antisamy-markup-formatter:1.5
 artifactory:2.16.2
 authentication-tokens:1.3
-azure-commons:0.2.7
+azure-commons:0.2.8
 azure-ad:0.3.1
 blueocean:1.8.3
 bouncycastle-api:2.17
@@ -46,7 +46,7 @@ ivy:1.28
 jackson2-api:2.8.11.3
 jacoco:3.0.3
 javadoc:1.4
-jenkins-design-language:1.8.3
+jenkins-design-language:1.8.4
 jdk-tool:1.1
 jquery-detached:1.2.1
 junit:1.26.1
@@ -68,7 +68,7 @@ pipeline-milestone-step:1.3.1
 pipeline-model-api:1.3.2
 pipeline-model-declarative-agent:1.1.1
 pipeline-model-definition:1.3.2
-pipeline-model-extensions:1.3.1
+pipeline-model-extensions:1.3.2
 pipeline-rest-api:2.10
 pipeline-stage-step:2.3
 pipeline-stage-tags-metadata:1.3.2
@@ -94,14 +94,14 @@ warnings:4.68
 windows-slaves:1.3.1
 workflow-aggregator:2.5
 workflow-api:2.29
-workflow-basic-steps:2.6
-workflow-cps-global-lib:2.9
-workflow-cps:2.47
-workflow-durable-task-step:2.19
-workflow-job:2.18
-workflow-multibranch:2.17
-workflow-scm-step:2.6
-workflow-step-api:2.14
-workflow-support:2.18
+workflow-basic-steps:2.11
+workflow-cps-global-lib:2.11
+workflow-cps:2.56
+workflow-durable-task-step:2.22
+workflow-job:2.25
+workflow-multibranch:2.20
+workflow-scm-step:2.7
+workflow-step-api:2.16
+workflow-support:2.20
 ws-cleanup:0.34
 
