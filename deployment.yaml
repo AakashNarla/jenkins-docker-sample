@@ -11,8 +11,8 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: myjenkins/jenkins:latest
-          imagePullPolicy: Never
+          image: aakashn/myjenkins:latest
+          imagePullPolicy: IfNotPresent
           env:
             - name: JAVA_OPTS
               value: -Djenkins.install.runSetupWizard=false
