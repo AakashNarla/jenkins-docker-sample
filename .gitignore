@@ -1,0 +1,10 @@
+kubernetes-terraform/.terraform/plugins/linux_amd64/terraform-provider-tls_v1.2.0_x4
+kubernetes-terraform/.terraform/plugins/linux_amd64/lock.json
+kubernetes-terraform/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.5.0_x4
+kubernetes-terraform/.terraform/plugins/linux_amd64/terraform-provider-null_v1.0.0_x4
+kubernetes-terraform/.terraform.tfstate.lock.info
+myjenkins.tar
+kubernetes-terraform/env.sh
+kubernetes-terraform/terraform.tfstate
+kubernetes-terraform/.ssh/id_rsa
+kubernetes-terraform/terraform.tfstate.backup
