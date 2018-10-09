@@ -8,3 +8,11 @@ kubernetes-terraform/env.sh
 kubernetes-terraform/terraform.tfstate
 kubernetes-terraform/.ssh/id_rsa
 kubernetes-terraform/terraform.tfstate.backup
+kubernetes-terraform/.password
+kubernetes-terraform/.username
+*/*/*.tfs*
+*/*.tfs*
+username
+password
+kubernetes-terraform/kubernetes-pod/.terraform/plugins/linux_amd64/lock.json
+kubernetes-terraform/kubernetes-pod/.terraform/plugins/linux_amd64/terraform-provider-kubernetes_v1.2.0_x4
