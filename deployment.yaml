@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: jenkins
+  namespace: jenkins-demo
 spec:
   replicas: 1
   template:
@@ -11,8 +12,8 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: aakashn/myjenkins:latest
-          imagePullPolicy: IfNotPresent
+          image: registrynxbnsf.azurecr.io/myjenkins:latest
+          imagePullPolicy: IfNotPresent          
           env:
             - name: JAVA_OPTS
               value: -Djenkins.install.runSetupWizard=false
@@ -32,6 +33,8 @@ spec:
             - name: pwdkeyvol
               mountPath: "/tmp/pwdkey"
               readOnly: true
+      imagePullSecrets:
+        - name: acrregcred
       volumes:
         - name: jenkins-home
           emptyDir: {}

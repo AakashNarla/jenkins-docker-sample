@@ -1,14 +1,14 @@
 provider "kubernetes" {}
 
-resource "kubernetes_namespace" "jenkins_namespace" {
-  metadata {
-    name = "${var.namespace}"
-  }
-}
+#resource "kubernetes_namespace" "jenkins_namespace" {
+ # metadata {
+ #   name = "${var.namespace}"
+ # }
+#}
 resource "kubernetes_secret" "unkey" {
   metadata {
     name = "unkey"
-    namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
+    #namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
   }
 
   data {
@@ -19,7 +19,7 @@ resource "kubernetes_secret" "unkey" {
 resource "kubernetes_secret" "pwdkey" {
   metadata {
     name = "pwdkey"
-    namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
+    #namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
   }
 
   data {
@@ -30,14 +30,14 @@ resource "kubernetes_replication_controller" "jenkins" {
   metadata {
     name = "jenkins"
     labels {
-      app = "jenkins"
+      App = "jenkins"
     }
-    namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
+    #namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
   }
   
   spec {
     selector {
-      app = "jenkins"
+      App = "jenkins"
     }
     replicas = 1
     template {
@@ -109,12 +109,12 @@ resource "kubernetes_replication_controller" "jenkins" {
 resource "kubernetes_service" "jenkins" {
   metadata {
     name      = "jenkins"
-    namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
+    #namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
   }
 
   spec {
     selector {
-      app = "${kubernetes_replication_controller.jenkins.metadata.0.labels.app}"
+      App = "${kubernetes_replication_controller.jenkins.metadata.0.labels.App}"
     }
 
     session_affinity = "None"
@@ -131,12 +131,12 @@ resource "kubernetes_service" "jenkins" {
 resource "kubernetes_service" "jenkins-discovery" {
   metadata {
     name      = "jenkins-discovery"
-    namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
+    #namespace = "${kubernetes_namespace.jenkins_namespace.metadata.0.name}"
   }
 
   spec {
     selector {
-      app = "${kubernetes_replication_controller.jenkins.metadata.0.labels.app}"
+      App = "${kubernetes_replication_controller.jenkins.metadata.0.labels.App}"
     }
 
     port {
@@ -144,4 +144,8 @@ resource "kubernetes_service" "jenkins-discovery" {
       target_port = 50000
     }
   }
+}
+
+output "lb_ip" {
+  value = "${kubernetes_service.jenkins.load_balancer_ingress.0.ip}"
 }

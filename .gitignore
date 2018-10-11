@@ -16,3 +16,6 @@ username
 password
 kubernetes-terraform/kubernetes-pod/.terraform/plugins/linux_amd64/lock.json
 kubernetes-terraform/kubernetes-pod/.terraform/plugins/linux_amd64/terraform-provider-kubernetes_v1.2.0_x4
+support.cloudbees.com.crt
+kubernetes-terraform/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.16.0_x4
+apiserver.crt
